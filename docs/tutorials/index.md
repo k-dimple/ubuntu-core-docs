@@ -14,6 +14,10 @@ Ubuntu Core has been designed to facilitate the creation, deployment, and  manag
 
   A step-by-step guide to building and testing your own image with your own selection of applications.
 
+* [Build an Ubuntu Core image for public clouds](/tutorials/build-a-public-cloud-image/index):
+
+  Build and test an Ubuntu Core image for different public clouds such as AWS, Azure and GCP.
+
 ## Install Ubuntu Core
 
 Pre-built test images are also available for Renesas GZ/G2l and MediaTek Genio devices, alongside x86-based PC-style hardware and ARM-based platforms.
@@ -33,4 +37,5 @@ Pre-built test images are also available for Renesas GZ/G2l and MediaTek Genio d
 :glob:
 
 Build your first image <build-your-first-image/index>
+Build a public cloud image <build-a-public-cloud-image/index>
 Try pre-built images <try-pre-built-images/index>
