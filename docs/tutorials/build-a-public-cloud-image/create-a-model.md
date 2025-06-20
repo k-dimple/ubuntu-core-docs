@@ -15,7 +15,7 @@ The quickest way to create a new model assertion is to edit a model that already
 
 ````{tabs}
 
-```{tab} AWS
+```{group-tab} AWS
 
 For AWS, we're going to modify [cloud/aws/aws-core-24-amd64.json](https://github.com/canonical/models/blob/master/cloud/aws/aws-core-24-amd64.json).
 
@@ -27,12 +27,12 @@ wget -O my-model.json https://github.com/canonical/models/blob/master/cloud/aws/
 ~~~
 ```
 
-```{tab} Azure
+```{group-tab} Azure
 
 Content to be added
 ```
 
-```{tab} GCP
+```{group-tab} GCP
 
 Content to be added
 ```
@@ -71,7 +71,7 @@ This needs to be provided at the end of the process; we’ll come back to this.
 
 ````{tabs}
 
-```{tab} AWS
+```{group-tab} AWS
 
 ~~~json
     "snaps": [
@@ -87,12 +87,12 @@ This needs to be provided at the end of the process; we’ll come back to this.
 This section lists the snaps to be included in the image. **aws-gadget** (shown above), **pc-kernel** (TODO:Correct kernel once available), **core24** and **snapd** are the four snaps required for a functioning Ubuntu Core image to be used on AWS.
 ```
 
-```{tab} Azure
+```{group-tab} Azure
 
 Content to be added
 ```
 
-```{tab} GCP
+```{group-tab} GCP
 
 Content to be added
 ```
@@ -104,43 +104,13 @@ Additional snaps are included using the same schema, with each snap requiring th
 - `default-channel`: the [channel](https://snapcraft.io/docs/channels) to install the snap from.
 - `id`: a unique snap identifier associated with every published snap. This is `snap-id` in the output from `snap info <snap-name>`.
 
----------------- TODO: Decide whether this following section (with an appropriate use case) is needed or not. Most probably it won't be needed as we are planning to add a new how-to guide (similar to http://localhost:8000/how-to-guides/using-ubuntu-core/) about using the image and experimenting with it. ---------------------  
-
-For this tutorial, we're going to add the [AdGuard Home](https://snapcraft.io/adguard-home) snap, an open source network-wide blocker for advertising and tracking. It's an ideal candidate for an Ubuntu Core image like this because it benefits from frequent autonomous updates and a confined environment.
-
-To add the AdGuard Home snap to our image, we need to add the JSON stanza to the _snaps_ section in our _my-model.json_ (note the comma you need to append to the preceding snap entry to show continuation):
-
-```json
-        {
-            "name": "adguard-home",
-            "type": "app",
-            "default-channel": "latest/stable",
-            "id": "UXZIkJfJT2SPCGejjnSjOBqJ71yHk8bw"
-        },
-```
-
-Snaps do not have dependencies, but they do require the presence of the [base snap](https://snapcraft.io/docs/base-snaps) they were built on. AdGuard Home is built using a base of `core22` (see the output from `snap info adguard-home --verbose | grep "base:"`). This can be added with the following:
-
-```json
-        {
-            "name": "core22",
-            "type": "base",
-            "default-channel": "latest/stable",
-            "id": "amcUKQILKXHHTlmSa7NMdnXSx02dNeeT"
-        }
-```
-
-The `snap-id` for a snap is in the output of the `snap info <snap-name>` command.
-
----------------- End of TODO ---------------------  
-
 ### Complete model example
 
 After finishing all your edits, the completed **my-model.json** text file should now contain the following:
 
 ````{tabs}
 
-```{tab} AWS
+```{group-tab} AWS
 TODO: Replace with correct model
 ~~~json
 {
@@ -183,12 +153,12 @@ TODO: Replace with correct model
 ~~~
 
 ```
-```{tab} Azure
+```{group-tab} Azure
 
 Content to be added
 ```
 
-```{tab} GCP
+```{group-tab} GCP
 
 Content to be added
 ```

@@ -10,16 +10,16 @@ For the host system used to build the image:
 For the public cloud that you want the image in:
 ````{tabs}
 
-```{tab} AWS
+```{group-tab} AWS
 - An existing AWS account
 - [Credentials (key pairs and access keys)](https://documentation.ubuntu.com/aws/aws-how-to/instances/launch-ubuntu-ec2-instance/#setup-credentials)
 ```
-```{tab} Azure
+```{group-tab} Azure
 
 Content to be added
 ```
 
-```{tab} GCP
+```{group-tab} GCP
 
 Content to be added
 ```

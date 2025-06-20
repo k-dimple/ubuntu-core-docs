@@ -40,7 +40,7 @@ The next step is to upload and register the image for use on a cloud.
 
 ````{tabs}
 
-```{tab} AWS
+```{group-tab} AWS
 Before you can register the image, you need to change its format by converting the raw image into a _.vmdk_ file. That can be done using the _qemu-img_ command.
 
 TODO: Add instructions to install qemu-utils (if it is not present already)
@@ -52,12 +52,12 @@ qemu-img convert -f raw -O vmdk -o subformat=streamOptimized pc.img pc.vmdk
 TODO: Add instructions to register the image (maybe using awspub, or some other standard AWS method)
  
 ```
-```{tab} Azure
+```{group-tab} Azure
 
 Content to be added
 ```
 
-```{tab} GCP
+```{group-tab} GCP
 
 Content to be added
 ```
