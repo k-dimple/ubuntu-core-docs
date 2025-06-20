@@ -8,7 +8,23 @@ For the host system used to build the image:
 - 10GB of free storage space
 
 For the public cloud that you want the image in:
-- An existing user account with the public cloud
+````{tabs}
+
+```{tab} AWS
+- An existing AWS account
+- [Credentials (key pairs and access keys)](https://documentation.ubuntu.com/aws/aws-how-to/instances/launch-ubuntu-ec2-instance/#setup-credentials)
+```
+```{tab} Azure
+
+Content to be added
+```
+
+```{tab} GCP
+
+Content to be added
+```
+````
+
 
 -------  TODO: -----------------
 
