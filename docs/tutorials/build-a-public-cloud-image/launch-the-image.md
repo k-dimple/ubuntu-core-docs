@@ -30,10 +30,8 @@ Default region name [None]:
 Default output format [None]:
 ~~~
 
-Use your access key credentials for the first two, specify a region and choose your preferred CLI output format from one of json, text or table. A sample response would look like:
+Use your access key credentials for the first two, specify a region (such as 'eu-north-1') and choose your preferred CLI output format from one of 'json', 'text' or 'table'.
 
----- TODO: Add a sample response -----
- 
 ```
 ```{group-tab} Azure
 
@@ -130,7 +128,7 @@ Content to be added
 
 Congratulations! You have successfully built your own Ubuntu Core image, launched it on a VM on a public cloud, and logged into that VM.
 
------------ TODO: Change this to point to a new how-to-guide that is public cloud specific. In that guide, use some specific example (TBD) to show how one can experiment with the image. ----------
+----------- TODO: Change the following to point to a new how-to-guide that is public cloud specific. In that guide, use some specific example (TBD) to show how one can experiment with the image. ----------
 
 See [First steps with Ubuntu Core](/how-to-guides/using-ubuntu-core) for an introduction to using Ubuntu Core.
 

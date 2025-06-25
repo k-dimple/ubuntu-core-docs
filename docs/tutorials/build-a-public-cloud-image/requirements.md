@@ -24,12 +24,3 @@ Content to be added
 Content to be added
 ```
 ````
-
-
--------  TODO: -----------------
-
-Decide whether CLI needs to be added as a requirement for each of the clouds(AWS CLI, Azure CLI and gcloud). If launching from the GUI is possible, we could skip the requirement here and mention CLI as an option along with relevant pointers to public cloud docs. 
-
-If CLI is the preferred option, then we need to decide if that is included as a requirement here or instructions for installing it are added where needed.
-
-------- End of TODO -----------------

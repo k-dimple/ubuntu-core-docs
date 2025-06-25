@@ -62,7 +62,7 @@ These properties define the authority responsible for the image. Change both ins
 
 
 ```json
-   "timestamp": "2024-04-19T08:42:32+00:00",
+   "timestamp": "2025-05-19T07:49:42+00:00",
 ```
 
 This needs to be provided at the end of the process; we’ll come back to this.
