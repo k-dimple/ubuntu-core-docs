@@ -51,13 +51,14 @@ Content to be added
 ```{group-tab} AWS
 To launch an image in AWS, you need to know its Amazon Machine Image (AMI) ID. To find the AMI ID of your image, run:
 
----- TODO: Replace with the correct command ------
+---- TODO: Replace with the correct command. This will depend on how the image is registered ------
 ~~~bash
 aws ssm get-parameters --names \
    /aws/service/canonical/ubuntu/server/24.04/stable/current/amd64/hvm/ebs-gp3/ami-id
 ~~~
 
 In the generated output, the “Value” field will have the required AMI ID. 
+
 
 Now, launch the image in an EC2 instance:
 
@@ -103,7 +104,6 @@ where `<your instance id>` is replaced with the instance ID that you saved above
 
 Now, log in to the instance using:
 
----- TODO: Check the command ------
 ~~~bash
 ssh -i <private SSH key file> ubuntu@<external-host-name>
 ~~~

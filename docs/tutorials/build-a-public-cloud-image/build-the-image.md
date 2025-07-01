@@ -12,8 +12,6 @@ sudo snap install ubuntu-image --classic
 
 The `ubuntu-image` command requires two arguments; `snap` to indicate we're building a snap-based Ubuntu Core image, and the filename of our previously-signed model assertion to build an image:
 
------------ TODO: Check if the following needs modifications ------------
-
 ```bash
 $ ubuntu-image snap my-model.model
 [0] prepare_image
@@ -32,7 +30,6 @@ Build successful
 ```
 You can safely ignore both of the above warnings, and the entire process should only take a few minutes (depending on your connectivity), with the creation of a `pc.img` Ubuntu Core image file being the end result.
 
------------ End of TODO ------------
 
 ## Register the image
 
@@ -41,9 +38,13 @@ The next step is to upload and register the image for use on a cloud.
 ````{tabs}
 
 ```{group-tab} AWS
-Before you can register the image, you need to change its format by converting the raw image into a _.vmdk_ file. That can be done using the _qemu-img_ command.
+Before you can register the image, you need to change its format by converting the raw image into a _.vmdk_ file. To do this, first install _qemu-utils_:
 
-TODO: Add instructions to install qemu-utils (if it is not present already)
+~~~bash
+sudo apt install qemu-utils
+~~~
+
+Now use the _qemu-img_ command to perform the format conversion:
 
 ~~~bash
 qemu-img convert -f raw -O vmdk -o subformat=streamOptimized pc.img pc.vmdk
