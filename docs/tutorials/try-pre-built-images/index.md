@@ -12,7 +12,7 @@ See [Supported testing platforms](/reference/testing-platforms) for links to ima
 
 You can try Ubuntu Core without any specific hardware from within a virtual machine using Multipass on Windows, Mac and Linux.
 
-* [Install on a VM](install-on-a-vm): Try Ubuntu Core on on a local machine
+* [Install on a VM](install-on-a-vm): Try Ubuntu Core on a local machine
 
 ## Install on a generic device
 
@@ -28,6 +28,15 @@ Pre-built test images are also available for Renesas GZ/G2L and MediaTek Genio d
 - [Install on a Renesas RZ/G2L](install-on-a-device/install-on-renesas): Install a pre-built image on a Renesas RZ/G2L device <install-on-renesas>
 - [Install on a MediaTek Genio](install-on-a-device/install-on-mediatek): Install a pre-built image on a MediaTek Genio device <install-on-mediatek>
 
+## Install on a public cloud
+
+Pre-built Ubuntu Core images are available on different public cloud platforms. Currently they are available on Amazon AWS, Microsoft Azure and Google cloud.  
+-- TODO: Update as required ----
+
+* [Install on AWS](install-on-a-public-cloud/install-on-aws): Try Ubuntu Core on an AWS EC2 instance
+* [Install on Azure](install-on-a-public-cloud/install-on-azure): Try Ubuntu Core on Azure
+* [Install on GCP](install-on-a-public-cloud/install-on-gcp): Try Ubuntu Core on a GCE instance in Google cloud. 
+
 
 ```{toctree}
 :hidden:
@@ -37,3 +46,4 @@ Pre-built test images are also available for Renesas GZ/G2L and MediaTek Genio d
 
 Install on a VM <install-on-a-vm>
 Install on a device <install-on-a-device/index>
+Install on a public cloud <install-on-a-public-cloud/index>

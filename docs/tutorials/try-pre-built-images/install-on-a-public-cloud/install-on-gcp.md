@@ -1,0 +1,1 @@
+# Install a pre-build Ubuntu Core image on a GCE instance
