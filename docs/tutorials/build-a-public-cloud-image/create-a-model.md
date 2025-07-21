@@ -84,7 +84,7 @@ This needs to be provided at the end of the process; we’ll come back to this.
        ...
 ~~~
 
-This section lists the snaps to be included in the image. **aws-gadget** (shown above), **pc-kernel** (TODO:Correct kernel once available), **core24** and **snapd** are the four snaps required for a functioning Ubuntu Core image to be used on AWS.
+This section lists the snaps to be included in the image. **aws-gadget** (shown above), **aws-kernel**, **core24** and **snapd** are the four snaps required for a functioning Ubuntu Core image to be used on AWS.
 ```
 
 ```{group-tab} Azure
@@ -111,15 +111,15 @@ After finishing all your edits, the completed **my-model.json** text file should
 ````{tabs}
 
 ```{group-tab} AWS
-TODO: Replace with correct model
+
 ~~~json
 {
     "type": "model",
     "series": "16",
     "model": "aws-core-24-amd64",
     "architecture": "amd64",
-    "authority-id": "Zg6Qv6Z53HIkziXyxtn1XItIq", 
-    "brand-id": "Zg6Qv6Z53HIkziXyxtn1XItIq",
+    "authority-id": "canonical",
+    "brand-id": "canonical",
     "timestamp": "2025-05-19T07:49:42+00:00",
     "base": "core24",
     "grade": "signed",
@@ -131,9 +131,9 @@ TODO: Replace with correct model
             "id": "mfDoEMcyOtXRpzrpIFuNDkJ2oAQWOquG"
         },
         {
-            "name": "pc-kernel",
+            "name": "aws-kernel",
             "type": "kernel",
-            "default-channel": "24/stable",
+            "default-channel": "24/beta",
             "id": "pYVQrBcKmBa0mZ4CCN7ExT6jH8rY1hza"
         },
         {
