@@ -28,8 +28,14 @@ wget -O my-model.json https://github.com/canonical/models/blob/master/cloud/aws/
 ```
 
 ```{group-tab} Azure
+For Azure, we're going to modify [cloud/azure/azure-core-24-amd64.json](https://github.com/canonical/models/blob/master/cloud/azure/azure-core-24-amd64.json).
 
-Content to be added
+
+Download and save the file locally with the following _wget_ command. We've called the file `my-model.json`:
+
+~~~bash
+wget -O my-model.json https://github.com/canonical/models/blob/master/cloud/azure/azure-core-24-amd64.json
+~~~
 ```
 
 ```{group-tab} GCP
@@ -81,15 +87,42 @@ This needs to be provided at the end of the process; we’ll come back to this.
             "default-channel": "24/stable",
             "id": "mfDoEMcyOtXRpzrpIFuNDkJ2oAQWOquG"
         },
+        {
+            "name": "aws-kernel",
+            "type": "kernel",
+            "default-channel": "24/stable",
+            "id": "pYVQrBcKmBa0mZ4CCN7ExT6jH8rY1hza"
+        },
        ...
+    ]
 ~~~
 
-This section lists the snaps to be included in the image. **aws-gadget** (shown above), **aws-kernel**, **core24** and **snapd** are the four snaps required for a functioning Ubuntu Core image to be used on AWS.
+This section lists the snaps to be included in the image. **aws-gadget**,**aws-kernel** (both shown above), **core24** and **snapd** are the four snaps required for a functioning Ubuntu Core image to be used on AWS.
 ```
 
 ```{group-tab} Azure
 
-Content to be added
+~~~json
+    "snaps": [
+        {
+            "name": "azure-gadget",
+            "type": "gadget",
+            "default-channel": "24/stable",
+            "id": "ix2UbhTKGMg7FOL29vAcxQn0qktk7eSa"
+        },        
+        ...        
+        {
+            "name": "waagent",
+            "type": "app",
+            "default-channel": "24/beta",
+            "id": "fRhDiEoI3Ey1HmMdfWaLetIPVN6npr8U"
+        }
+    ]
+~~~
+
+This section lists the snaps to be included in the image. **azure-gadget**, **waagent** (both shown above), **pc-kernel**, **core24** and **snapd** are the five snaps required for a functioning Ubuntu Core image to be used on Azure.
+
+-- TODO: Update pc-kernel to azure-kernel when it becomes available --- 
 ```
 
 ```{group-tab} GCP
@@ -155,7 +188,52 @@ After finishing all your edits, the completed **my-model.json** text file should
 ```
 ```{group-tab} Azure
 
-Content to be added
+~~~json
+{
+    "type": "model",
+    "series": "16",
+    "model": "azure-core-24-amd64",
+    "architecture": "amd64",
+    "authority-id": "canonical",
+    "brand-id": "canonical",
+    "timestamp": "2025-07-29T20:53:33+00:00",
+    "base": "core24",
+    "grade": "signed",
+    "snaps": [
+        {
+            "name": "azure-gadget",
+            "type": "gadget",
+            "default-channel": "24/stable",
+            "id": "ix2UbhTKGMg7FOL29vAcxQn0qktk7eSa"
+        },
+        {
+            "name": "pc-kernel",
+            "type": "kernel",
+            "default-channel": "24/stable",
+            "id": "pYVQrBcKmBa0mZ4CCN7ExT6jH8rY1hza"
+        },
+        {
+            "name": "core24",
+            "type": "base",
+            "default-channel": "latest/stable",
+            "id": "dwTAh7MZZ01zyriOZErqd1JynQLiOGvM"
+        },
+        {
+            "name": "snapd",
+            "type": "snapd",
+            "default-channel": "latest/stable",
+            "id": "PMrrV4ml8uWuEUDBT8dSGnKUYbevVhc4"
+        },
+        {
+            "name": "waagent",
+            "type": "app",
+            "default-channel": "24/beta",
+            "id": "fRhDiEoI3Ey1HmMdfWaLetIPVN6npr8U"
+        }
+    ]
+}
+~~~
+
 ```
 
 ```{group-tab} GCP

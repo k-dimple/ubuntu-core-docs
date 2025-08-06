@@ -16,7 +16,8 @@ For the public cloud that you want the image in:
 ```
 ```{group-tab} Azure
 
-Content to be added
+- An existing Azure account
+- ---- TODO: Check if anything more is needed -----
 ```
 
 ```{group-tab} GCP
