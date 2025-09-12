@@ -1,78 +1,29 @@
 # Launch the image
 
-After [building and registering](/tutorials/build-your-first-image/build-the-image) a custom Ubuntu Core image for a public cloud, it has to be launched for use. You can launch it using either the cloud's graphical interface or through a command line interface (CLI). Here we'll be using the CLI. 
-
-
-## Install the CLI
-
-````{tabs}
-
-```{group-tab} AWS
-
-To install the AWS CLI, run:
-
-~~~bash
-sudo snap install aws-cli --classic
-~~~
-
-Then, configure it:
-
-~~~bash
-aws configure
-~~~
-
-Here you'll have to enter values for each of:
-
-~~~bash
-AWS Access Key ID [None]:
-AWS Secret Access Key [None]:
-Default region name [None]:
-Default output format [None]:
-~~~
-
-Use your access key credentials for the first two, specify a region (such as 'eu-north-1') and choose your preferred CLI output format from one of 'json', 'text' or 'table'.
-
-```
-```{group-tab} Azure
-
-Content to be added
-```
-
-```{group-tab} GCP
-
-Content to be added
-```
-````
+After [building and registering](/tutorials/build-a-public-cloud-image/build-the-image) a custom Ubuntu Core image for a public cloud, it has to be launched for use.
 
 ## Launch Ubuntu Core
 
 ````{tabs}
 
 ```{group-tab} AWS
-To launch an image in AWS, you need to know its Amazon Machine Image (AMI) ID. To find the AMI ID of your image, run:
-
----- TODO: Replace with the correct command. This will depend on how the image is registered ------
-~~~bash
-aws ssm get-parameters --names \
-   /aws/service/canonical/ubuntu/server/24.04/stable/current/amd64/hvm/ebs-gp3/ami-id
-~~~
-
-In the generated output, the “Value” field will have the required AMI ID. 
-
-
-Now, launch the image in an EC2 instance:
+To launch the image in AWS onn an EC2 instance, run:
+, use the saved AMI ID  and launch it i
 
 ~~~bash
 aws ec2 run-instances --image-id <image id> --key-name <your key pair> --instance-type <instance type>
 ~~~
 
-In the above command, replace `<image id>` with the AMI ID obtained above, `<your key pair>` with your secret key pair and `<instance type>` with one of the AMD64 [instance types available on Amazon](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html). Do not choose an instance that does not have UEFI support. ---- TODO: Check if this bit about instance types is correct and enough. e.g. How do we check if the instance type has UEFI support or not. -----
+In the above command, replace 
+- `<image id>` with the saved AMI ID from the previous step of [registering the image](/tutorials/build-a-public-cloud-image/build-the-image)
+- `<your key pair>` with your secret key pair and 
+- `<instance type>` with one of the AMD64 [instance types available on Amazon](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html). Do not choose an instance that does not have UEFI support. ---- TODO: Check if this bit about instance types is correct and enough. e.g. How do we check if the instance type has UEFI support or not. -----
 
 An example command would look like:
 
 ---- TODO: Update this to a correct example ---- 
 ~~~bash
-aws ec2 run-instances --image-id ami-0014ce3e52359afbd --key-name TestKeyPair --instance-type t3.medium
+aws ec2 run-instances --image-id ami-00710b821b31f5c78 --key-name TestKeyPair --instance-type t3.medium
 ~~~
 
 The output of this command includes an instance ID. Save the value as it'll be needed as an input in the next command.

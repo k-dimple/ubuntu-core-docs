@@ -50,7 +50,56 @@ Now use the _qemu-img_ command to perform the format conversion:
 qemu-img convert -f raw -O vmdk -o subformat=streamOptimized pc.img pc.vmdk
 ~~~
 
-TODO: Add instructions to register the image (maybe using awspub, or some other standard AWS method)
+To register / publish the image, we'll use a tool called _awspub_. Install it using:
+
+~~~bash
+snap install awspub
+~~~
+
+Now create a config file called `config.yaml` containing:
+
+~~~bash
+awspub:
+  source:
+    path: "pc.vmdk"
+    architecture: "x86_64"
+  s3:
+    bucket_name: "my-bucket"
+  images:
+    "my-ubuntu-core-image":
+      description: |
+        My Ubuntu Core image for AWS
+      boot_mode: "uefi"
+      root_device_volume_type: "gp3"
+      root_device_volume_size: 8
+      root_device_name: "/dev/sda1"
+      imds_support: "v2.0"
+      public: false
+      regions:
+        - "my-region"
+~~~
+
+In the above, you'll have to replace
+- "my-bucket" - with your S3 bucket name
+- "my-ubuntu-core-image" - with the name that you would like your image to have, and
+- "my-region" - with the region in which you want your image to reside (same as your S3 bucket's region)
+
+Finally, register the image using:
+
+~~~bash
+awspub create config.yaml
+~~~
+
+The output will include the Amazon Machine Image (AMI) ID of the published image, with the relevant portion looking something like:
+
+~~~bash
+{
+  "images": {
+    "my-ubuntu-core-image": {
+      "eu-north-1": "ami-00710b821b31f5c78"
+    ...
+~~~
+Make a note of the AMI ID since it'll be needed in the next step while [launching the image](launch-the-image).
  
 ```
 ```{group-tab} Azure
