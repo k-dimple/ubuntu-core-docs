@@ -13,8 +13,8 @@ For the public cloud that you want the image in:
 ```{group-tab} AWS
 - An active AWS account
 - [Credentials (key pairs and access keys)](https://documentation.ubuntu.com/aws/aws-how-to/instances/launch-ubuntu-ec2-instance/#setup-credentials)
-- AWS CLI installed (installation instructions below)
-- An Amazon S3 bucket in the region where you want your image to reside
+- AWS CLI installed (see instructions below)
+- An Amazon S3 bucket in the region where you want your image to reside (see instructions below)
 
 ```
 ```{group-tab} Azure
@@ -30,13 +30,15 @@ Content to be added
 ````
 
 
-## CLI installation instructions
+## Installation instructions
 
 Since most of the tutorial uses CLI commands, you'll need the respective cloud CLI to be installed.  
 
 ````{tabs}
 
 ```{group-tab} AWS
+
+### CLI installation
 
 To install the AWS CLI, run:
 
@@ -60,6 +62,18 @@ Default output format [None]:
 ~~~
 
 Use your access key credentials for the first two, specify a region (such as 'eu-north-1') and choose your preferred CLI output format from one of 'json', 'text' or 'table'.
+
+### S3 bucket creation
+
+To create and S3 bucket named "my-bucket" in the "us-east-1" region, run:
+
+~~~bash
+aws s3api create-bucket \
+    --bucket my-bucket \
+    --region us-east-1
+~~~
+
+You can change the bucket name and region as required. For better speeds, choose a region closer to you.
 
 ```
 ```{group-tab} Azure

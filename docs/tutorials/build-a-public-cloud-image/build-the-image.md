@@ -76,13 +76,10 @@ awspub:
       imds_support: "v2.0"
       public: false
       regions:
-        - "my-region"
+        - "us-east-1"
 ~~~
 
-In the above, you'll have to replace
-- "my-bucket" - with your S3 bucket name
-- "my-ubuntu-core-image" - with the name that you would like your image to have, and
-- "my-region" - with the region in which you want your image to reside (same as your S3 bucket's region)
+In the above, the region specified is "us-east-1", but if you have created your S3 bucket in a different region, use that instead. You can also rename "my-bucket" and "my-ubuntu-core-image" appropriately.
 
 Finally, register the image using:
 
@@ -96,7 +93,7 @@ The output will include the Amazon Machine Image (AMI) ID of the published image
 {
   "images": {
     "my-ubuntu-core-image": {
-      "eu-north-1": "ami-00710b821b31f5c78"
+      "us-east-1": "ami-00710b821b31f5c78"
     ...
 ~~~
 Make a note of the AMI ID since it'll be needed in the next step while [launching the image](launch-the-image).

@@ -12,15 +12,16 @@ You will need:
 - An existing AWS account
 - AWS CLI installed
 - [Credentials (key pairs and access keys)](https://documentation.ubuntu.com/aws/aws-how-to/instances/launch-ubuntu-ec2-instance/#setup-credentials)
+- A subscription to the AWS marketplace
 
 ## Launch an Ubuntu Core image
 
 To launch an image in AWS, you need to know its Amazon Machine Image (AMI) ID. To find the AMI ID of your image, run:
 
 ~~~bash
-aws ssm get-parameters --names \
-   /aws/service/canonical/ubuntu/core/24.04/stable/current/amd64/hvm/ebs-gp3/ami-id
+aws ssm get-parameter --name /aws/service/marketplace/$IDENTIFIER/latest
 ~~~
+---TODO: Replace $IDENTIFIER with the actual value once the image is published on the marketplace --------
 
 In the generated output, the “Value” field will have the required AMI ID. 
 
@@ -31,13 +32,18 @@ Now, launch the image in an EC2 instance:
 aws ec2 run-instances --image-id <image id> --key-name <your key pair> --instance-type <instance type>
 ~~~
 
-In the above command, replace `<image id>` with the AMI ID obtained above, `<your key pair>` with your secret key pair and `<instance type>` with one of the AMD64 [instance types available on Amazon](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html). Do not choose an instance that does not have UEFI support. ---- TODO: Check if this bit about instance types is correct and enough. e.g. How do we check if the instance type has UEFI support or not. -----
+----- TODO: Check if --region needs to be specified in these commands ------
+ 
+In the above command, replace 
+- `<image id>` with the AMI ID obtained above,
+- `<your key pair>` with your secret key pair and 
+- `<instance type>` with one of the AMD64 [instance types available on Amazon](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html). Choose an instance with UEFI support.
 
 An example command would look like:
 
----- TODO: Update this to a correct example ---- 
+
 ~~~bash
-aws ec2 run-instances --image-id ami-0014ce3e52359afbd --key-name TestKeyPair --instance-type t3.medium
+aws ec2 run-instances --image-id ami-00710b821b31f5c78 --key-name TestKeyPair --instance-type t3.medium
 ~~~
 
 The output of this command includes an instance ID. Save the value as it'll be needed as an input in the next command.

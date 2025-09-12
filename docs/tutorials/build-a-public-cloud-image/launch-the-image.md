@@ -7,23 +7,22 @@ After [building and registering](/tutorials/build-a-public-cloud-image/build-the
 ````{tabs}
 
 ```{group-tab} AWS
-To launch the image in AWS onn an EC2 instance, run:
-, use the saved AMI ID  and launch it i
+To launch the image in AWS on an EC2 instance, run:
 
 ~~~bash
-aws ec2 run-instances --image-id <image id> --key-name <your key pair> --instance-type <instance type>
+aws ec2 run-instances --image-id <image id> --key-name <your key pair> --region <your region> --instance-type <instance type> 
 ~~~
-
 In the above command, replace 
 - `<image id>` with the saved AMI ID from the previous step of [registering the image](/tutorials/build-a-public-cloud-image/build-the-image)
-- `<your key pair>` with your secret key pair and 
-- `<instance type>` with one of the AMD64 [instance types available on Amazon](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html). Do not choose an instance that does not have UEFI support. ---- TODO: Check if this bit about instance types is correct and enough. e.g. How do we check if the instance type has UEFI support or not. -----
+- `<your key pair>` with your secret key pair 
+- `<your region>` with the region where you have registered your image and 
+- `<instance type>` with one of the AMD64 [instance types available on Amazon](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html). Choose an instance with UEFI support. 
+
 
 An example command would look like:
 
----- TODO: Update this to a correct example ---- 
 ~~~bash
-aws ec2 run-instances --image-id ami-00710b821b31f5c78 --key-name TestKeyPair --instance-type t3.medium
+aws ec2 run-instances --image-id ami-00710b821b31f5c78 --key-name TestKeyPair --region us-east-1 --instance-type t3.medium 
 ~~~
 
 The output of this command includes an instance ID. Save the value as it'll be needed as an input in the next command.
