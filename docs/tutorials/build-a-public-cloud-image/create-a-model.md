@@ -28,6 +28,7 @@ wget -O my-model.json https://github.com/canonical/models/blob/master/cloud/aws/
 ```
 
 ```{group-tab} Azure
+
 For Azure, we're going to modify [cloud/azure/azure-core-24-amd64.json](https://github.com/canonical/models/blob/master/cloud/azure/azure-core-24-amd64.json).
 
 
@@ -40,7 +41,14 @@ wget -O my-model.json https://github.com/canonical/models/blob/master/cloud/azur
 
 ```{group-tab} GCP
 
-Content to be added
+For GCP, we're going to modify [cloud/gce/gce-core-24-amd64.json](https://github.com/canonical/models/blob/master/cloud/gce/gce-core-24-amd64.json).
+
+
+Download and save the file locally with the following _wget_ command. We've called the file `my-model.json`:
+
+~~~bash
+wget -O my-model.json https://github.com/canonical/models/blob/master/cloud/gce/gce-core-24-amd64.json
+~~~
 ```
 ````
 
@@ -62,7 +70,7 @@ The following fields in `my-model.json` need to be changed:
 "brand-id": "canonical",
 ```
 
-These properties define the authority responsible for the image. Change both instances of the string "canonical" to your developer id, retrieved with the `snapcraft whoami` command. ("xSfWKGdLoQBoQx88", in our example output). This links the image to your Ubuntu One account and ensures that only *you* can push image updates to devices using your model.
+These properties define the authority responsible for the image. Change both instances of the string "canonical" to your developer id, retrieved with the `snapcraft whoami` command ("xSfWKGdLoQBoQx88", in our example output seen in the [Accessing Ubuntu One](/tutorials/build-a-public-cloud-image/access-ubuntu-one/) step). This links the image to your Ubuntu One account and ensures that only *you* can push image updates to devices using your model.
 
 ### timestamp
 
@@ -127,7 +135,27 @@ This section lists the snaps to be included in the image. **azure-gadget**, **wa
 
 ```{group-tab} GCP
 
-Content to be added
+~~~json
+     "snaps": [
+        {
+            "name": "gce-gadget",
+            "type": "gadget",
+            "default-channel": "24/stable",
+            "id": "jQb6VXJonDq7VaBo66YPjE9SVoQV84hy"
+        },
+        ...
+        {
+            "name": "console-conf",
+            "type": "app",
+            "default-channel": "24/stable",
+            "id": "ASctKBEHzVt3f1pbZLoekCvcigRjtuqw",
+            "presence": "optional"
+        }
+~~~
+
+This section lists the snaps to be included in the image. **gce-gadget**, **console-conf** (both shown above), **pc-kernel**, **core24** and **snapd** are the five snaps required for a functioning Ubuntu Core image to be used on GCP.
+
+-- TODO: Update pc-kernel to gce-kernel when it becomes available --- 
 ```
 ````
 
@@ -238,7 +266,53 @@ After finishing all your edits, the completed **my-model.json** text file should
 
 ```{group-tab} GCP
 
-Content to be added
+
+~~~json
+{
+    "type": "model",
+    "series": "16",
+    "model": "gce-core-24-amd64",
+    "architecture": "amd64",
+    "authority-id": "canonical",
+    "brand-id": "canonical",
+    "timestamp": "2025-08-25T14:45:00+00:00",
+    "base": "core24",
+    "grade": "signed",
+    "snaps": [
+        {
+            "name": "gce-gadget",
+            "type": "gadget",
+            "default-channel": "24/stable",
+            "id": "jQb6VXJonDq7VaBo66YPjE9SVoQV84hy"
+        },
+        {
+            "name": "pc-kernel",
+            "type": "kernel",
+            "default-channel": "24/stable",
+            "id": "pYVQrBcKmBa0mZ4CCN7ExT6jH8rY1hza"
+        },
+        {
+            "name": "core24",
+            "type": "base",
+            "default-channel": "latest/stable",
+            "id": "dwTAh7MZZ01zyriOZErqd1JynQLiOGvM"
+        },
+        {
+            "name": "snapd",
+            "type": "snapd",
+            "default-channel": "latest/stable",
+            "id": "PMrrV4ml8uWuEUDBT8dSGnKUYbevVhc4"
+        },
+        {
+            "name": "console-conf",
+            "type": "app",
+            "default-channel": "24/stable",
+            "id": "ASctKBEHzVt3f1pbZLoekCvcigRjtuqw",
+            "presence": "optional"
+        }
+    ]
+}
+~~~
 ```
 ````
 

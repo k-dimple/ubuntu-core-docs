@@ -25,7 +25,9 @@ For the public cloud that you want the image in:
 
 ```{group-tab} GCP
 
-Content to be added
+
+- An existing GCP account
+- ---- TODO: Check if anything more is needed -----
 ```
 ````
 
@@ -78,11 +80,11 @@ You can change the bucket name and region as required. For better speeds, choose
 ```
 ```{group-tab} Azure
 
-Content to be added
+To install the Azure CLI refer to [Install Azure CLI on Ubuntu](https://documentation.ubuntu.com/azure/azure-how-to/instances/install-azure-cli/)
 ```
 
 ```{group-tab} GCP
 
-Content to be added
+---- TODO: Content to be added ----------------
 ```
 ````
