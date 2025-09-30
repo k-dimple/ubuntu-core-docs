@@ -27,14 +27,14 @@ For the public cloud that you want the image in:
 
 
 - An existing GCP account
-- ---- TODO: Check if anything more is needed -----
+- A Cloud Storage bucket to store your image
 ```
 ````
 
 
 ## Installation instructions
 
-Since most of the tutorial uses CLI commands, you'll need the respective cloud CLI to be installed.  
+Since most of the tutorial uses CLI commands, you'll need the respective cloud CLI to be installed. You'll also need some storage bucket to store the image that you create.  
 
 ````{tabs}
 
@@ -67,7 +67,7 @@ Use your access key credentials for the first two, specify a region (such as 'eu
 
 ### S3 bucket creation
 
-To create and S3 bucket named "my-bucket" in the "us-east-1" region, run:
+To create an S3 bucket named "my-bucket" in the "us-east-1" region, run:
 
 ~~~bash
 aws s3api create-bucket \
@@ -80,11 +80,13 @@ You can change the bucket name and region as required. For better speeds, choose
 ```
 ```{group-tab} Azure
 
-To install the Azure CLI refer to [Install Azure CLI on Ubuntu](https://documentation.ubuntu.com/azure/azure-how-to/instances/install-azure-cli/)
+To install the Azure CLI refer to our documentation about [installing Azure CLI on Ubuntu](https://documentation.ubuntu.com/azure/azure-how-to/instances/install-azure-cli/)
 ```
 
 ```{group-tab} GCP
 
----- TODO: Content to be added ----------------
+Refer to Google's documentation about [installing gcloud](https://cloud.google.com/sdk/docs/install#deb) to install the gcloud CLI.
+
+Create a cloud storage bucket on GCP using their instructions for [creating a new bucket](https://cloud.google.com/storage/docs/creating-buckets#command-line).
 ```
 ````

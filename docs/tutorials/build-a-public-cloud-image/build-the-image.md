@@ -106,6 +106,40 @@ Content to be added
 
 ```{group-tab} GCP
 
-Content to be added
+Before you can register the image, you need to change its format by converting the image into a _.raw_ file. To do this, first install _qemu-utils_:
+
+~~~bash
+sudo apt install qemu-utils
+~~~
+
+Now use the _qemu-img_ command to perform the format conversion:
+
+~~~bash
+qemu-img convert -f raw -o subformat=fixed,force_size -O vpc pc.img pc.raw
+~~~
+
+Then compress the image to create a _.tar.gz_ file. You can use any suitable name, we are using "my-ubuntu-core-image" as the ongoing example here.
+
+~~~bash
+tar -zcvSf my-ubuntu-core-image.tar.gz pc.raw
+~~~
+
+Now upload the compressed image to your storage bucket using gcloud. Replace $MY_BUCKET_NAME with the name of your cloud storage bucket and run the following command:
+
+~~~bash
+gcloud storage cp my-ubuntu-core-image.tar.gz gs://$MY_BUCKET_NAME
+~~~
+
+
+Finally register / publish the image using:
+
+~~~bash
+gcloud compute images create my-ubuntu-core-image --source-uri=$URI_TO_OBJECT_IN_GOOGLE_STORAGE
+~~~
+
+where $URI_TO_OBJECT_IN_GOOGLE_STORAGE is to be replaced with the URI of the uploaded image from the previous step.
+
+Make a note of the image name ("my-ubuntu-core-image" in this case) since it'll be needed in the next step while [launching the image](launch-the-image).
+
 ```
 ````
