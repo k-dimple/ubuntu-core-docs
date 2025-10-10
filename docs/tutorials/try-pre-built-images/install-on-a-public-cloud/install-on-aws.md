@@ -19,9 +19,8 @@ You will need:
 To launch an image in AWS, you need to know its Amazon Machine Image (AMI) ID. To find the AMI ID of your image, run:
 
 ~~~bash
-aws ssm get-parameter --name /aws/service/marketplace/$IDENTIFIER/latest
+aws ssm get-parameter --name /aws/service/marketplace/prod-bzuby7ix53bx2/latest
 ~~~
----TODO: Replace $IDENTIFIER with the actual value once the image is published on the marketplace --------
 
 In the generated output, the “Value” field will have the required AMI ID. 
 
@@ -29,15 +28,13 @@ In the generated output, the “Value” field will have the required AMI ID.
 Now, launch the image in an EC2 instance:
 
 ~~~bash
-aws ec2 run-instances --image-id <image id> --key-name <your key pair> --instance-type <instance type>
+aws ec2 run-instances --image-id IMAGE_ID --key-name YOUR_KEY_PAIR --instance-type INSTANCE_TYPE
 ~~~
-
------ TODO: Check if --region needs to be specified in these commands ------
  
 In the above command, replace 
-- `<image id>` with the AMI ID obtained above,
-- `<your key pair>` with your secret key pair and 
-- `<instance type>` with one of the AMD64 [instance types available on Amazon](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html). Choose an instance with UEFI support.
+- `IMAGE_ID` with the AMI ID obtained above,
+- `YOUR_KEY_PAIR` with your secret key pair and 
+- `INSTANCE_TYPE` with one of the AMD64 [instance types available on Amazon](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html). Choose an instance with UEFI support.
 
 An example command would look like:
 
@@ -56,18 +53,18 @@ Now that the instance is launched, we can determine its hostname and then log in
 To find the hostname, run:
 
 ~~~bash
-aws ec2 describe-instances --instance-ids <your instance id>
+aws ec2 describe-instances --instance-ids YOUR_INSTANCE_ID
 ~~~
 
-where `<your instance id>` is replaced with the instance ID that you saved above. The output will contain the required hostname in a field called _PublicDnsName_. 
+where `YOUR_INSTANCE_ID` is replaced with the instance ID that you saved above. The output will contain the required hostname in a field called _PublicDnsName_. 
 
 Now, log in to the instance using:
 
 ~~~bash
-ssh -i <private SSH key file> ubuntu@<external-host-name>
+ssh -i PRIVATE_SSH_KEY_FILE ubuntu@EXTERNAL_HOST_NAME
 ~~~
 
-where `<private SSH key file>` is the filename of the private SSH key that corresponds to the key pair used above (in the ec2 run-instances command), and `<external-host-name>` is the hostname just found.
+where `PRIVATE_SSH_KEY_FILE` is the filename of the private SSH key that corresponds to the key pair used above (in the ec2 run-instances command), and `EXTERNAL_HOST_NAME` is the hostname just found.
 
 An example command looks like:
 
