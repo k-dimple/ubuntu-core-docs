@@ -13,13 +13,14 @@ For the public cloud that you want the image in:
 ```{group-tab} AWS
 - An active AWS account
 - [Credentials (key pairs and access keys)](https://documentation.ubuntu.com/aws/aws-how-to/instances/launch-ubuntu-ec2-instance/#setup-credentials)
-- AWS CLI installed (see instructions below)
+- AWS CLI '`aws-cli`' (see installation instructions below)
 - An Amazon S3 bucket in the region where you want your image to reside (see instructions below)
 
 ```
 ```{group-tab} Azure
 
 - An existing Azure account
+- Azure CLI '`azure-cli`' (see installation instructions below)
 - ---- TODO: Check if anything more is needed -----
 ```
 
@@ -27,6 +28,7 @@ For the public cloud that you want the image in:
 
 
 - An existing GCP account
+- Google CLI '`gcloud`' (see installation instructions below)
 - A Cloud Storage bucket to store your image
 ```
 ````
@@ -80,13 +82,13 @@ You can change the bucket name and region as required. For better speeds, choose
 ```
 ```{group-tab} Azure
 
-To install the Azure CLI refer to our documentation about [installing Azure CLI on Ubuntu](https://documentation.ubuntu.com/azure/azure-how-to/instances/install-azure-cli/)
+[Instructions for installing Azure CLI on Ubuntu](https://documentation.ubuntu.com/azure/azure-how-to/instances/install-azure-cli/).
 ```
 
 ```{group-tab} GCP
 
-Refer to Google's documentation about [installing gcloud](https://cloud.google.com/sdk/docs/install#deb) to install the gcloud CLI.
+[Instructions for installing gcloud, the Google CLI](https://cloud.google.com/sdk/docs/install#deb).
 
-Create a cloud storage bucket on GCP using their instructions for [creating a new bucket](https://cloud.google.com/storage/docs/creating-buckets#command-line).
+[Instructions for creating a new cloud storage bucket on GCP](https://cloud.google.com/storage/docs/creating-buckets#command-line).
 ```
 ````
