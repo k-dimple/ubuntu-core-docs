@@ -2,9 +2,10 @@
 
 We create pre-built Ubuntu Core images for several public clouds. These images are a way to explore Ubuntu Core.
 
-* [Install on AWS](install-on-a-public-cloud/install-on-aws): Try Ubuntu Core on an AWS EC2 instance
-* [Install on Azure](install-on-a-public-cloud/install-on-azure): Try Ubuntu Core on Azure
-* [Install on GCP](install-on-a-public-cloud/install-on-gcp): Try Ubuntu Core on a GCE instance in Google cloud. 
+* [Install on AWS](install-on-aws): Try Ubuntu Core on an AWS EC2 instance
+* [Install on Azure](install-on-azure): Try Ubuntu Core on Azure
+* [Install on GCP](install-on-gcp): Try Ubuntu Core on a GCE instance in Google cloud
+* [Install on OpenStack](install-on-openstack): Try Ubuntu Core on an OpenStack instance
 
 Canonical produces official images for the [following platforms](https://ubuntu.com/core/docs/supported-platforms).
 
@@ -19,3 +20,4 @@ Canonical produces official images for the [following platforms](https://ubuntu.
 Install on AWS <install-on-aws>
 Install on Azure <install-on-azure>
 Install on GCP <install-on-gcp>
+Install on OpenStack <install-on-openstack>

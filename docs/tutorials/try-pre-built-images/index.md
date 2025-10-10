@@ -30,12 +30,14 @@ Pre-built test images are also available for Renesas GZ/G2L and MediaTek Genio d
 
 ## Install on a public cloud
 
-Pre-built Ubuntu Core images are available on different public cloud platforms. Currently they are available on Amazon AWS, Microsoft Azure and Google cloud.  
+Pre-built Ubuntu Core images are available on different public cloud platforms. Currently they are available on Amazon AWS, Microsoft Azure, Google cloud, and OpenStack.
+
 -- TODO: Update as required ----
 
 * [Install on AWS](install-on-a-public-cloud/install-on-aws): Try Ubuntu Core on an AWS EC2 instance
 * [Install on Azure](install-on-a-public-cloud/install-on-azure): Try Ubuntu Core on Azure
-* [Install on GCP](install-on-a-public-cloud/install-on-gcp): Try Ubuntu Core on a GCE instance in Google cloud. 
+* [Install on GCP](install-on-a-public-cloud/install-on-gcp): Try Ubuntu Core on a GCE instance in Google cloud
+* [Install on OpenStack](install-on-a-public-cloud/install-on-openstack): Try Ubuntu Core on an OpenStack instance
 
 
 ```{toctree}
