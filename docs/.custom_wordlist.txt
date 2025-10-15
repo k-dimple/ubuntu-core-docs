@@ -237,6 +237,7 @@ Ok
 onboarding
 OpenPGP
 OpenSSH
+OpenStack
 OpenVPN
 OTA
 OTA
@@ -266,6 +267,7 @@ preseeeded
 prioritize
 programmatically
 ptrace
+QCOW
 QEMU
 qemu
 qmi
@@ -324,6 +326,7 @@ SSD
 SSH
 SSID
 SSO
+subcommand
 subnet
 subnets
 Substores
