@@ -29,7 +29,53 @@ The output of this command includes an instance ID. Save the value as it'll be n
 
 ```
 ```{group-tab} Azure
-Content to be added
+Prerequisites:
+
+* A valid Microsoft Azure account
+* [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest)
+* The image version registered in an Azure compute gallery as part of [building the image](/tutorials/build-a-public-cloud-image/build-the-image)
+
+The following commands will:
+
+1. Retrieve the image reference for the image version registered in the Azure compute gallery
+2. Launch an Azure image version using the image reference
+
+~~~bash
+COMPUTE_GALLERY_RESOURCE_GROUP="..."
+COMPUTE_GALLERY="..."
+IMAGE_DEFINITION="..."
+IMAGE_VERSION="..."
+
+IMAGE_REFERENCE=$(
+    az sig image-version show \
+        --resource-group "${COMPUTE_GALLERY_RESOURCE_GROUP}" \
+        --gallery-name "${COMPUTE_GALLERY}" \
+        --gallery-image-definition "${IMAGE_DEFINITION}" \
+        --gallery-image-version "${IMAGE_VERSION}" \
+        --query "id" \
+        --output tsv
+)
+
+LOCATION="..."              # See az account list-locations.
+VM_RESOURCE_GROUP="..."
+
+az group create \
+    --location "${LOCATION}" \
+    --name "${VM_RESOURCE_GROUP}"
+
+VM_NAME="..."
+USERNAME="..."
+
+# --generate-ssh-keys will generate a SSH keypair in the ~/.ssh directory.
+# Alternatively, existing SSH key(s) can be provided with --ssh-key-values.
+az vm create \
+    --resource-group "${VM_RESOURCE_GROUP}" \
+    --name "${VM_NAME}" \
+    --image "${IMAGE_REFERENCE}" \
+    --admin-username "${USERNAME}" \
+    --generate-ssh-keys
+~~~
+
 ```
 
 ```{group-tab} GCP
@@ -68,7 +114,22 @@ ssh -i TestKeyPair.pem ubuntu@ec2-135-28-52-91.compute-1.amazonaws.com
 
 ```
 ```{group-tab} Azure
-Content to be added
+The launched instance can be accessed using SSH:
+
+~~~bash
+ssh -i <private_ssh_key_path> <username>@<public_ip_address>
+
+~~~
+
+The public IP address for the instance can be determined either from the command output of the Azure CLI command used to
+create the instance, or by navigating to the virtual machine resource in the Azure Portal where it will be displayed in the
+networking properties.
+
+An example command looks like:
+~~~bash
+ssh -i ~/.ssh/id_rsa ubuntu@20.112.118.62
+~~~
+
 ```
 
 ```{group-tab} GCP
