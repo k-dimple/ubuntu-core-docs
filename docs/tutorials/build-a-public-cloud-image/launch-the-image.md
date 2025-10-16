@@ -93,19 +93,31 @@ Content to be added
 ```
 
 ```{group-tab} GCP
-Once the instance is launched, you can log into it using:
+Now that the instance is launched, we can determine its IP address and then log into it.
+
+To find the IP address, run:
 
 ~~~bash
-gcloud compute ssh YOUR_INSTANCE_NAME --zone=YOUR_ZONE
+gcloud compute instances describe "YOUR_INSTANCE_NAME" --zone="YOUR_ZONE" \
+            --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
 ~~~
 
-where YOUR_INSTANCE_NAME and YOUR_ZONE correspond to the values used above in the previous command. 
+where `YOUR_INSTANCE_NAME` and `YOUR_ZONE` is replaced with the corresponding values that you chose above. Save the IP address and log in to the instance using:
+
+~~~bash
+ssh -i PRIVATE_SSH_KEY_FILE ubuntu@IP_ADDRESS
+~~~
+
+where 
+* `PRIVATE_SSH_KEY_FILE` is the filename of your private SSH key that corresponds to the public key set up in your GCP project and
+* `IP_ADDRESS` is the IP address that was just found.
 
 An example command looks like:
 
 ~~~bash
-gcloud compute ssh my-ubuntu-core-instance --zone=us-central1-a
+ssh -i ~/.ssh/gcp_key ubuntu@104.198.153.7
 ~~~
+
 
 ```
 ````

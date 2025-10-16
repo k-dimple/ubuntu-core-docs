@@ -1,6 +1,6 @@
 # Install on a public cloud
 
-We create pre-built Ubuntu Core images for several public clouds. These images are a way to explore Ubuntu Core.
+We create pre-built Ubuntu Core images for several public clouds. Currently they are available for private preview in the respective marketplaces. These images are a way to explore Ubuntu Core.
 
 * [Install on AWS](install-on-aws): Try Ubuntu Core on an AWS EC2 instance
 * [Install on Azure](install-on-azure): Try Ubuntu Core on Azure

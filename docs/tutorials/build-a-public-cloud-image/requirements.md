@@ -21,13 +21,13 @@ For the public cloud that you want the image in:
 
 - An existing Azure account
 - Azure CLI '`azure-cli`' (see installation instructions below)
-- ---- TODO: Check if anything more is needed -----
 ```
 
 ```{group-tab} GCP
 
 
 - An existing GCP account
+- Credentials - A [public SSH key added to your project](https://cloud.google.com/compute/docs/connect/add-ssh-keys#add_ssh_keys_to_project_metadata)
 - Google CLI '`gcloud`' (see installation instructions below)
 - A Cloud Storage bucket to store your image
 ```
