@@ -29,15 +29,9 @@ The output of this command includes an instance ID. Save the value as it'll be n
 
 ```
 ```{group-tab} Azure
-Prerequisites:
+Run the following commands to:
 
-* A valid Microsoft Azure account
-* [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest)
-* The image version registered in an Azure compute gallery as part of [building the image](/tutorials/build-a-public-cloud-image/build-the-image)
-
-The following commands will:
-
-1. Retrieve the image reference for the image version registered in the Azure compute gallery
+1. Retrieve the image reference for the image version registered in the Azure compute gallery and
 2. Launch an Azure image version using the image reference
 
 ~~~bash
@@ -135,14 +129,14 @@ ssh -i TestKeyPair.pem ubuntu@ec2-135-28-52-91.compute-1.amazonaws.com
 
 ```
 ```{group-tab} Azure
-The launched instance can be accessed using SSH:
+Now that the instance is launched, it can be accessed using SSH:
 
 ~~~bash
 ssh -i <private_ssh_key_path> <username>@<public_ip_address>
 
 ~~~
 
-The public IP address for the instance can be determined either from the command output of the Azure CLI command used to
+If the commands from the previous step were run as is, your private SSH key will be available in the `~/.ssh` directory. The public IP address for the instance can be determined either from the command output of the Azure CLI command used to
 create the instance, or by navigating to the virtual machine resource in the Azure Portal where it will be displayed in the
 networking properties.
 
@@ -178,7 +172,6 @@ An example command looks like:
 ~~~bash
 ssh -i ~/.ssh/gcp_key ubuntu@104.198.153.7
 ~~~
-
 
 ```
 ````

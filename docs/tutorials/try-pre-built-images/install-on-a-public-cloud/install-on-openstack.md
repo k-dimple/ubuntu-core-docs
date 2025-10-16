@@ -16,44 +16,42 @@ You will need:
 
 ## Setup
 
-Let's ensure that we have all of the packages installed before we begin. Most of these should be provided by your distribution already except for `qemu-utils`:
+Install all the required packages (most of them should be already provided by your distribution):
 
 ```bash
 sudo apt update
 sudo apt install wget xz-utils openssh-client qemu-utils
 ````
 
-In a new directory for this project, place your OpenStack RC file from the [Requirements](#requirements) section above. Source the credentials file. This will look something like:
+Place your OpenStack RC file in a new directory for this project. Set up the credentials by sourcing the file. Assuming the file is called `PROJECT-openrc.sh`, run:
 
 ```bash
 . PROJECT-openrc.sh
 ```
+Download the Core image to be used and convert it to QCOW format so that it can be used with OpenStack:
 
-Download the image and convert it to QCOW format:
 ```bash
 wget https://cdimage.ubuntu.com/ubuntu-core/24/stable/current/ubuntu-core-24-amd64.img.xz
 unxz ubuntu-core-24-amd64.img.xz
 qemu-img convert -c -O qcow2 ubuntu-core-24-amd64.img core24.qcow
 ```
 
-Now that we have the Ubuntu Core in a format we can use with OpenStack, we're ready to deploy.
-
 ## Deploy to OpenStack
 
-We're going to start by registering the image with OpenStack using the client you set up in the [Requirements](#requirements) section:
+Start by registering the image with OpenStack using the client you set up in the [Requirements](#requirements) section:
 
 ```bash
 openstack image create TEST-ubuntu-core24 --disk-format qcow2 --file core24.qcow --property hw_firmware_type=uefi --progress
 ```
 
-Use the `keypair create` subcommand to generate a new SSH key pair and save a copy to our working directory. Test the key exists in our OpenStack instance with the `keypair list` subcommand:
+Use the `keypair create` subcommand to generate a new SSH key pair and save a copy to the working directory. Test the key exists in our OpenStack instance with the `keypair list` subcommand:
 
 ```bash
 openstack keypair create TEST-ubuntu-core > key.pem
 openstack keypair list | grep TEST-ubuntu-core
 ```
 
-We need to secure the private file key. SSH will throw an error and ignore the key if its file permissions are too open, which they currently are. We don't need to modify this key in any way, so we will set the permissions as read-only for the owner:
+Secure the private file key, since SSH will throw an error and ignore the key if its file permissions are too open. Set the permissions as read-only for the owner:
 
 ```bash
 chmod 400 key.pem
@@ -71,11 +69,11 @@ You should shortly be able to see the instance using the `server list` subcomman
 openstack server list
 ```
 
-Take note of the IP address from the `Networks` column of the output as we will need it to log in to the instance. It is `01.234.567.89` format string after the `Ext-Net` value.
+Take note of the IP address from the `Networks` column of the output. It'll be a string of the form `01.234.567.89` seen after the `Ext-Net` value.
 
 ## Log in to the instance
 
-Lastly connect to the instance, using the the IP from the above the previous step:
+Connect to the instance using the IP from the previous step:
 
 ```bash
 ssh -i key.pem ubuntu@<instance_ip>
@@ -85,4 +83,5 @@ Congratulations! You have successfully launched an OpenStack instance with a pre
 
 ## More information
 
+--- TODO: Point to the correct link below ---
 See [First steps with Ubuntu Core](/how-to-guides/using-ubuntu-core) for an introduction to using your new Ubuntu Core installation or learn how to [build your own Ubuntu Core image for public clouds](/tutorials/build-a-public-cloud-image/index).

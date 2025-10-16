@@ -19,8 +19,9 @@ For the public cloud that you want the image in:
 ```
 ```{group-tab} Azure
 
-- An existing Azure account
-- Azure CLI '`azure-cli`' (see installation instructions below)
+- A valid Microsoft Azure account
+- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) '`azure-cli`' (see installation instructions below)
+- An existing Azure [storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview) and [compute gallery](https://learn.microsoft.com/en-us/azure/virtual-machines/azure-compute-gallery)
 ```
 
 ```{group-tab} GCP

@@ -100,15 +100,13 @@ Make a note of the AMI ID since it'll be needed in the next step while [launchin
  
 ```
 ```{group-tab} Azure
+Before you can register the image, you need to change its format by converting the raw image into a _.vhd_ file. To do this, first install _qemu-utils_:
 
-Prerequisites:
+~~~bash
+sudo apt install qemu-utils
+~~~
 
-* A valid Microsoft Azure account
-* [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest)
-* An existing Azure [storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview) and [compute gallery](https://learn.microsoft.com/en-us/azure/virtual-machines/azure-compute-gallery)
-* _qemu-utils_
-
-The following commands will:
+Now run the following set of commands. They will:
 
 1. Convert the Ubuntu Core disk image to the VHD format
 2. Upload the VHD to an existing Azure storage account
@@ -169,7 +167,7 @@ az sig image-version create \
 
 ~~~
 
-Once registered the image version can be used to launch an Azure virtual machine (see [launching the image](launch-the-image)).
+Once registered, the image version can be used to launch an Azure virtual machine (see [launching the image](launch-the-image)).
 
 ```
 
