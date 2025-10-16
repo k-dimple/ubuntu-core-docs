@@ -101,7 +101,76 @@ Make a note of the AMI ID since it'll be needed in the next step while [launchin
 ```
 ```{group-tab} Azure
 
-Content to be added
+Prerequisites:
+
+* A valid Microsoft Azure account
+* [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest)
+* An existing Azure [storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview) and [compute gallery](https://learn.microsoft.com/en-us/azure/virtual-machines/azure-compute-gallery)
+* _qemu-utils_
+
+The following commands will:
+
+1. Convert the Ubuntu Core disk image to the VHD format
+2. Upload the VHD to an existing Azure storage account
+3. Register the VHD to an Azure compute gallery
+
+~~~bash
+DISK_IMAGE="pc.img"
+DISK_IMAGE_VHD="pc.vhd"
+BYTES_PER_MEGABYTE=$(( 1024 * 1024 ))
+
+IMAGE_SIZE=$(stat --format "%s" ${DISK_IMAGE})
+ROUNDED_IMAGE_SIZE=$(( ("${IMAGE_SIZE}" / "${BYTES_PER_MEGABYTE}" + 1) * "${BYTES_PER_MEGABYTE}" ))
+qemu-img resize -f raw "${DISK_IMAGE}" "${ROUNDED_IMAGE_SIZE}"
+qemu-img convert -f raw -o subformat=fixed,force_size -O vpc "${DISK_IMAGE}" "${DISK_IMAGE_VHD}"
+
+STORAGE_ACCOUNT="..."
+CONTAINER="..."
+
+az storage blob upload \
+    --account-name "${STORAGE_ACCOUNT}" \
+    --container "${CONTAINER}" \
+    --file "${DISK_IMAGE_VHD}" \
+    --name "${DISK_IMAGE_VHD}"
+
+RESOURCE_GROUP="..."
+COMPUTE_GALLERY_NAME="..."
+IMAGE_DEFINITION="..."
+PUBLISHER="..."
+OFFER="..."
+SKU="..."
+IMAGE_VERSION="..."
+
+az sig image-definition create \
+    --resource-group "${RESOURCE_GROUP}" \
+    --gallery-name "${COMPUTE_GALLERY}" \
+    --gallery-image-definition "${IMAGE_DEFINITION}" \
+    --publisher "${PUBLISHER}" \
+    --offer "${OFFER}" \
+    --sku "${SKU}" \
+    --os-type linux \
+    --os-state Generalized
+
+OS_VHD_URI=$(
+    az storage blob url \
+        --account-name "${STORAGE_ACCOUNT}" \
+        --container "${CONTAINER}" \
+        --name "${DISK_IMAGE_VHD}" \
+        --output tsv
+)
+
+az sig image-version create \
+    --resource-group "${RESOURCE_GROUP}" \
+    --gallery-name "${COMPUTE_GALLERY}" \
+    --gallery-image-definition "${IMAGE_DEFINITION}" \
+    --gallery-image-version "${IMAGE_VERSION}" \
+    --os-vhd-storage-account "${STORAGE_ACCOUNT}" \
+    --os-vhd-uri "${OS_VHD_URI}"
+
+~~~
+
+Once registered the image version can be used to launch an Azure virtual machine (see [launching the image](launch-the-image)).
+
 ```
 
 ```{group-tab} GCP
