@@ -1,31 +1,24 @@
 # How-to guides
 
-If you have a specific goal, but are already familiar with Ubuntu Core, our _How-to_ guides have more in-depth detail than our tutorials and can be applied to a broader set of applications. They'll help you achieve an end result but may require you to understand and adapt the steps to fit your specific requirements.
+This section includes guides to help you with two main features:
+
+## Try pre-built images
+
+Pre-built Ubuntu Core images are available for private preview in the marketplaces of different public cloud platforms. Currently they are available on Amazon AWS, Microsoft Azure and Google cloud. A pre-built image for OpenStack is also available. 
+
+They are ideal for exploration and experimentation, but they are not intended for deployment or use at scale.
+
+* [Install a pre-built image on AWS](install-on-aws): Try Ubuntu Core on an AWS EC2 instance
+* [Install a pre-built image on Azure](install-on-azure): Try Ubuntu Core on Azure
+* [Install a pre-built image on GCP](install-on-gcp): Try Ubuntu Core on a GCE instance in Google cloud
+* [Install a pre-built image on OpenStack](install-on-openstack): Try Ubuntu Core on an OpenStack instance
+
 
 ## How to use Ubuntu Core
 
 While Ubuntu Core is primarily intended for developers to build custom images tailored for their application and targeted hardware, this page is a great place to start after you’ve just installed pre-built Ubuntu Core images and want to learn a few of the basic principles quickly.
 
-- [Using Ubuntu Core](using-ubuntu-core)
-
-## Image creation
-
-Any device running Ubuntu Core is instantiated from an image. This image contains little more than the kernel, an init process, and a few essential tools. On all but the earliest releases of Ubuntu Core, even the snapd daemon that manages snaps is itself installed via its own snap.
-
-- [Create images](image-creation/index)
-
-## Manage Ubuntu Core
-
-Maintain and manage your Ubuntu Core systems, including recovery modes, system users, configuration options and kernel options.
-
-- [Manage Ubuntu Core](manage-ubuntu-core/index)
-
-## Container deployment
-
-Ubuntu Core has been developed specifically to leverage the power of snap packages, with their autonomous upgrades and confined sandbox. But it can also be used to run and deploy Docker container images, either from the command line or embedded within an Ubuntu Core image.
-
-- [Deploy containers](container-deployment/index)
-
+- [Use Ubuntu Core](using-ubuntu-core)
 
 
 ```{toctree}
@@ -34,7 +27,9 @@ Ubuntu Core has been developed specifically to leverage the power of snap packag
 :maxdepth: 2
 :glob:
 
-Using Ubuntu Core <using-ubuntu-core>
-Create images <image-creation/index>
-Manage Ubuntu Core <manage-ubuntu-core/index>
-Deploy containers <container-deployment/index>
+
+Install on AWS <install-on-aws>
+Install on Azure <install-on-azure>
+Install on GCP <install-on-gcp>
+Install on OpenStack <install-on-openstack>
+Use Ubuntu Core <using-ubuntu-core>

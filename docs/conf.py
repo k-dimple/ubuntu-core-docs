@@ -25,7 +25,7 @@ import yaml
 #
 # TODO: Update with the official name of your project or product
 
-project = "Ubuntu Core"
+project = "Ubuntu Core on the Clouds"
 author = "Canonical Ltd."
 
 
@@ -35,7 +35,7 @@ author = "Canonical Ltd."
 #
 # TODO: To disable the title, set to an empty string.
 
-html_title = project + " documentation"
+html_title = project
 
 
 # Copyright string; shown at the bottom of the page
@@ -326,5 +326,4 @@ html_baseurl = 'https://documentation.ubuntu.com/core/'
 sitemap_url_scheme = "{link}"
 
 intersphinx_mapping = {
-    'starter-pack': ('https://canonical-example-product-documentation.readthedocs-hosted.com/en/latest', None)
 }

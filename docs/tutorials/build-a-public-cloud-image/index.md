@@ -1,6 +1,6 @@
 # Build a public cloud image
 
-Ubuntu Core images can be used on the public clouds. To **build and register an Ubuntu Core image on different public clouds** such as AWS, Azure and GCP, follow the steps of this tutorial.
+Ubuntu Core images can be used on the public clouds. To **build and register an Ubuntu Core image on** different public clouds such as **AWS, Azure and GCP**, follow the steps of this tutorial.
 
 ## Step-by-step guide
 
