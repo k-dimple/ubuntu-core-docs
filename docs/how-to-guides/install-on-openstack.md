@@ -83,5 +83,4 @@ Congratulations! You have successfully launched an OpenStack instance with a pre
 
 ## More information
 
---- TODO: Point to the correct link below ---
 See [First steps with Ubuntu Core](/how-to-guides/using-ubuntu-core) for an introduction to using your new Ubuntu Core installation or learn how to [build your own Ubuntu Core image for public clouds](/tutorials/build-a-public-cloud-image/index).

@@ -128,7 +128,7 @@ This section lists the snaps to be included in the image. **aws-gadget**,**aws-k
     ]
 ~~~
 
-This section lists the snaps to be included in the image. **azure-gadget**, **waagent** (both shown above), **pc-kernel**, **core24** and **snapd** are the five snaps required for a functioning Ubuntu Core image to be used on Azure.
+This section lists the snaps to be included in the image. The five snaps required for an Ubuntu Core image to function correctly on Azure are: **azure-gadget**, **waagent** (both shown above), **pc-kernel**, **core24** and **snapd**.
 
 -- TODO: Update pc-kernel to azure-kernel when it becomes available --- 
 ```
@@ -143,6 +143,12 @@ This section lists the snaps to be included in the image. **azure-gadget**, **wa
             "default-channel": "24/stable",
             "id": "jQb6VXJonDq7VaBo66YPjE9SVoQV84hy"
         },
+        {
+            "name": "gcp-kernel",
+            "type": "kernel",
+            "default-channel": "24/stable",
+            "id": "XCu2oFG8cSgq2ZWmdaMyvSZhrrUhy1yi"
+        },
         ...
         {
             "name": "console-conf",
@@ -153,9 +159,8 @@ This section lists the snaps to be included in the image. **azure-gadget**, **wa
         }
 ~~~
 
-This section lists the snaps to be included in the image. **gce-gadget**, **console-conf** (both shown above), **pc-kernel**, **core24** and **snapd** are the five snaps required for a functioning Ubuntu Core image to be used on GCP.
+This section lists the snaps to be included in the image. The five snaps required for an Ubuntu Core image to function correctly on GCP are: **gce-gadget**, **gcp-kernel**, **console-conf**, **core24** and **snapd**. The first three of these are shown above.
 
--- TODO: Update pc-kernel to gce-kernel when it becomes available --- 
 ```
 ````
 
@@ -286,10 +291,10 @@ After finishing all your edits, the completed **my-model.json** text file should
             "id": "jQb6VXJonDq7VaBo66YPjE9SVoQV84hy"
         },
         {
-            "name": "pc-kernel",
+            "name": "gcp-kernel",
             "type": "kernel",
             "default-channel": "24/stable",
-            "id": "pYVQrBcKmBa0mZ4CCN7ExT6jH8rY1hza"
+            "id": "XCu2oFG8cSgq2ZWmdaMyvSZhrrUhy1yi"
         },
         {
             "name": "core24",

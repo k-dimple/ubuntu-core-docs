@@ -57,7 +57,6 @@ ssh -i ~/.ssh/id_rsa ubuntu@20.112.118.62
 
 Congratulations! You have successfully launched an Azure VM with a pre-built Ubuntu Core image.
 
------ TODO: Change the following to point to a new how-to-guide that is public cloud specific. In that guide, use some specific example (TBD) to show how one can experiment with the image. ———
 
 See [First steps with Ubuntu Core](/how-to-guides/using-ubuntu-core) for an introduction to using your new Ubuntu Core installation or learn how to [build your own Ubuntu Core image for public clouds](/tutorials/build-a-public-cloud-image/index).
 

@@ -8,7 +8,6 @@
 | | |
 |--|--|
 |  [Tutorial](/tutorials/index)</br>  A hands-on introduction to building Ubuntu Core images for the cloud </br> |  [How-to guides](/how-to-guides/index) </br>     Step-by-step guides covering some common tasks |
-| [Default Features](default-features) </br> Clarification of some key default features  |
 
 
 Thinking about using Ubuntu Core for your next project? [Get in touch!](https://ubuntu.com/core/contact-us?product=core-overview) 
@@ -21,5 +20,4 @@ Thinking about using Ubuntu Core for your next project? [Get in touch!](https://
 
 Tutorial <tutorials/index>
 How-to guides <how-to-guides/index>
-Default Features <default-features>
 
