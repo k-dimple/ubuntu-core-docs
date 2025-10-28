@@ -117,8 +117,14 @@ This section lists the snaps to be included in the image. **aws-gadget**,**aws-k
             "type": "gadget",
             "default-channel": "24/stable",
             "id": "ix2UbhTKGMg7FOL29vAcxQn0qktk7eSa"
-        },        
-        ...        
+        },
+        {
+            "name": "azure-kernel",
+            "type": "kernel",
+            "default-channel": "24/stable",
+            "id": "QdLm7X3eivGPViprLsTqy0JqVDRz6Wzy"
+        },
+        ...
         {
             "name": "waagent",
             "type": "app",
@@ -128,9 +134,8 @@ This section lists the snaps to be included in the image. **aws-gadget**,**aws-k
     ]
 ~~~
 
-This section lists the snaps to be included in the image. The five snaps required for an Ubuntu Core image to function correctly on Azure are: **azure-gadget**, **waagent** (both shown above), **pc-kernel**, **core24** and **snapd**.
+This section lists the snaps to be included in the image. The five snaps required for an Ubuntu Core image to function correctly on Azure are: **azure-gadget**, **azure-kernel**, **waagent**, **core24** and **snapd**. The first three of these are shown above.
 
--- TODO: Update pc-kernel to azure-kernel when it becomes available --- 
 ```
 
 ```{group-tab} GCP
@@ -232,6 +237,7 @@ After finishing all your edits, the completed **my-model.json** text file should
     "timestamp": "2025-07-29T20:53:33+00:00",
     "base": "core24",
     "grade": "signed",
+    "revision": "1",
     "snaps": [
         {
             "name": "azure-gadget",
@@ -240,10 +246,10 @@ After finishing all your edits, the completed **my-model.json** text file should
             "id": "ix2UbhTKGMg7FOL29vAcxQn0qktk7eSa"
         },
         {
-            "name": "pc-kernel",
+            "name": "azure-kernel",
             "type": "kernel",
             "default-channel": "24/stable",
-            "id": "pYVQrBcKmBa0mZ4CCN7ExT6jH8rY1hza"
+            "id": "QdLm7X3eivGPViprLsTqy0JqVDRz6Wzy"
         },
         {
             "name": "core24",
