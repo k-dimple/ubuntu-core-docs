@@ -20,13 +20,10 @@ To launch an Ubuntu Core image in Azure, run:
 az vm create \
     --resource-group VM_RESOURCE_GROUP \
     --name VM_NAME \
-    --image IMAGE_REFERENCE \
+    --image canonical:ubuntu-core-24-private:ubuntu-core:latest \
     --admin-username USERNAME \
     --generate-ssh-keys
 ~~~
-
---- TODO: Replace IMAGE_REFERENCE with the correct Marketplace URN once it is available ----
-
 
 where 
 - `VM_RESOURCE_GROUP` is the name of your VM's resource group,
