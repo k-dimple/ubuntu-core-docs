@@ -132,7 +132,7 @@ az storage blob upload \
     --name "${DISK_IMAGE_VHD}"
 
 RESOURCE_GROUP="..."
-COMPUTE_GALLERY_NAME="..."
+COMPUTE_GALLERY="..."
 IMAGE_DEFINITION="..."
 PUBLISHER="..."
 OFFER="..."
