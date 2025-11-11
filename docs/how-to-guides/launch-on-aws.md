@@ -1,4 +1,4 @@
-# Install a pre-build Ubuntu Core image on an AWS EC2 instance
+# Launch a pre-build Ubuntu Core image on an AWS EC2 instance
 
 Pre-built images are ideal for exploration and experimentation of Ubuntu Core, but they are not intended for deployment or use at scale. 
 

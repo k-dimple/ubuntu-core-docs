@@ -1,4 +1,4 @@
-# Install a pre-built Ubuntu Core image on an OpenStack instance
+# Launch a pre-built Ubuntu Core image on an OpenStack instance
 
 Pre-built images are ideal for exploration and experimentation of Ubuntu Core, but they are not intended for deployment or use at scale. 
 
