@@ -167,6 +167,16 @@ az sig image-version create \
 
 ~~~
 
+For more details about these commands you can refer to the following links from Azure's documentation:
+
+* [Create an image definition and an image version](https://learn.microsoft.com/en-us/azure/virtual-machines/image-version?tabs=portal%2Ccli2)
+* [Store and share images in an Azure Compute Gallery](https://learn.microsoft.com/en-us/azure/virtual-machines/shared-image-galleries?tabs=vmsource%2Cazure-cli)
+* Commands used
+  - [az storage blob upload](https://learn.microsoft.com/en-us/cli/azure/storage/blob?view=azure-cli-latest#az-storage-blob-upload)
+  - [az sig image-definition create](https://learn.microsoft.com/en-us/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-create)
+  - [az storage blob url](https://learn.microsoft.com/en-us/cli/azure/storage/blob?view=azure-cli-latest#az-storage-blob-url)
+  - [az sig image-version create](https://learn.microsoft.com/en-us/cli/azure/sig/image-version?view=azure-cli-latest#az-sig-image-version-create)
+
 Once registered, the image version can be used to launch an Azure virtual machine (see [launching the image](launch-the-image)).
 
 ```

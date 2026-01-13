@@ -4,7 +4,7 @@ At the heart of custom Ubuntu Core image creation is the _model assertion_. An a
 
 The model contains:
 * identification information, such as the developer-id and model name.
-* which [essential snaps](/explanation/core-elements/snaps-in-ubuntu-core) make up the device system.
+* which [essential snaps](https://documentation.ubuntu.com/core/explanation/core-elements/snaps-in-ubuntu-core/) make up the device system.
 * other required or optional snaps that implement the device application functionality.
 
 See below for details on how to download and modify a model file to include your own selection of snaps.
@@ -23,7 +23,7 @@ For AWS, we're going to modify [cloud/aws/aws-core-24-amd64.json](https://github
 Download and save the file locally with the following _wget_ command. We've called the file `my-model.json`:
 
 ~~~bash
-wget -O my-model.json https://github.com/canonical/models/blob/master/cloud/aws/aws-core-24-amd64.json
+wget -O my-model.json https://raw.githubusercontent.com/canonical/models/refs/heads/master/cloud/aws/aws-core-24-amd64.json
 ~~~
 ```
 
@@ -35,7 +35,7 @@ For Azure, we're going to modify [cloud/azure/azure-core-24-amd64.json](https://
 Download and save the file locally with the following _wget_ command. We've called the file `my-model.json`:
 
 ~~~bash
-wget -O my-model.json https://github.com/canonical/models/blob/master/cloud/azure/azure-core-24-amd64.json
+wget -O my-model.json https://raw.githubusercontent.com/canonical/models/refs/heads/master/cloud/azure/azure-core-24-amd64.json
 ~~~
 ```
 
@@ -47,7 +47,7 @@ For GCP, we're going to modify [cloud/gce/gce-core-24-amd64.json](https://github
 Download and save the file locally with the following _wget_ command. We've called the file `my-model.json`:
 
 ~~~bash
-wget -O my-model.json https://github.com/canonical/models/blob/master/cloud/gce/gce-core-24-amd64.json
+wget -O my-model.json https://raw.githubusercontent.com/canonical/models/refs/heads/master/cloud/gce/gce-core-24-amd64.json
 ~~~
 ```
 ````

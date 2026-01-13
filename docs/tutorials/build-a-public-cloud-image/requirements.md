@@ -84,6 +84,13 @@ You can change the bucket name and region as required. For better speeds, choose
 ```{group-tab} Azure
 
 [Instructions for installing Azure CLI on Ubuntu](https://documentation.ubuntu.com/azure/azure-how-to/instances/install-azure-cli/).
+
+After installing the CLI, run:
+
+~~~bash
+az login
+~~~
+
 ```
 
 ```{group-tab} GCP
