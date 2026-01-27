@@ -10,7 +10,7 @@ You can find more information about building Core images for public clouds in th
 You will need:
 
 - An existing GCP account
-- Credentials - A [public SSH key added to your project](https://cloud.google.com/compute/docs/connect/add-ssh-keys#add_ssh_keys_to_project_metadata)
+- Credentials - A [public SSH key added to your project for the username 'ubuntu'](https://cloud.google.com/compute/docs/connect/add-ssh-keys#add_ssh_keys_to_project_metadata)
 - Google CLI '`gcloud`' installed ([installation instructions](https://cloud.google.com/sdk/docs/install#deb))
 
 ## Launch an Ubuntu Core image
@@ -40,7 +40,7 @@ gcloud compute instances describe "YOUR_INSTANCE_NAME" --zone="YOUR_ZONE" \
             --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
 ~~~
 
-where `YOUR_INSTANCE_NAME` and `YOUR_ZONE` is replaced with the corresponding values that you chose above. Save the IP address and log in to the instance using:
+where `YOUR_INSTANCE_NAME` and `YOUR_ZONE` is replaced with the corresponding values that you chose above. Save the IP address and log in to the instance using the 'ubuntu' username:
 
 ~~~bash
 ssh -i PRIVATE_SSH_KEY_FILE ubuntu@IP_ADDRESS
