@@ -171,7 +171,7 @@ This section lists the snaps to be included in the image. The five snaps require
 
 Additional snaps are included using the same schema, with each snap requiring the following fields:
 - `name`: simply the snap name.
-- `type`: the [type of snap](/explanation/core-elements/snaps-in-ubuntu-core.md#types-of-snap). This is `app` for standard application snaps.
+- `type`: the [type of snap](https://documentation.ubuntu.com/core/explanation/core-elements/snaps-in-ubuntu-core/#types-of-snap). This is `app` for standard application snaps.
 - `default-channel`: the [channel](https://snapcraft.io/docs/channels) to install the snap from.
 - `id`: a unique snap identifier associated with every published snap. This is `snap-id` in the output from `snap info <snap-name>`.
 
