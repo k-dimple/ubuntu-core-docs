@@ -20,14 +20,13 @@ To launch a pre-built image in GCE, run:
 ~~~bash
 
 gcloud compute instances create YOUR_INSTANCE_NAME \
-    --image-family=IMAGE_FAMILY \
-    --image-project=IMAGE_PROJECT
-    --zone=YOUR_ZONE
+    --image-family=core-2404-lts-amd64 \
+    --image-project=canonical-public
+    --zone=us-central1-b
 ~~~
 
 with YOUR_INSTANCE_NAME changed to a VM name of your choosing. 
 
------ TODO: replace IMAGE_FAMILY, IMAGE_PROJECT and YOUR_ZONE with some valid values ------
 
 ## Log in to the instance
 
