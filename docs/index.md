@@ -7,7 +7,8 @@
 ## In this documentation
 | | |
 |--|--|
-|  [Tutorial](/tutorials/index)</br>  A hands-on introduction to building Ubuntu Core images for the cloud </br> |  [How-to guides](/how-to-guides/index) </br>     Step-by-step guides covering some common tasks |
+|  [Tutorial](/tutorials/index)</br>  A hands-on introduction to building Ubuntu Core images for the cloud </br> |  [How-to guides](/how-to-guides/index) </br>     Step-by-step guides covering some common tasks | 
+| [Reference](/reference/index) </br> Technical information - specifications, APIs, architecture |
 
 
 Thinking about using Ubuntu Core for your next project? [Get in touch!](https://ubuntu.com/core/contact-us?product=core-overview) 
@@ -20,4 +21,4 @@ Thinking about using Ubuntu Core for your next project? [Get in touch!](https://
 
 Tutorial <tutorials/index>
 How-to guides <how-to-guides/index>
-
+Reference <reference/index>

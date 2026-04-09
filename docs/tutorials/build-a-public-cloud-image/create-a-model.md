@@ -136,6 +136,8 @@ This section lists the snaps to be included in the image. **aws-gadget**,**aws-k
 
 This section lists the snaps to be included in the image. The five snaps required for an Ubuntu Core image to function correctly on Azure are: **azure-gadget**, **azure-kernel**, **waagent**, **core24** and **snapd**. The first three of these are shown above.
 
+To know more about the Azure-specific gadget snaps, refer to 'Azure gadget snaps' in our [reference section](/reference/index/).
+
 ```
 
 ```{group-tab} GCP
